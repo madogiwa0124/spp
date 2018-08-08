@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["madogiwa"]
   spec.email         = ["madogiwa0124@gmail.com"]
 
-  spec.summary       = %q{spp is powerful pretty print library. }
+  spec.summary       = %q{spp is super pretty print library. }
   spec.homepage      = "https://github.com/Madogiwa0124/spp"
   spec.license       = "MIT"
 
