@@ -45,6 +45,16 @@ Spp::spp('hoge', 'start', 'end', '😃' * 5)
 😃😃😃😃😃 end 😃😃😃😃😃
 ```
 
+You can also pass the block and take the benchmark.
+``` ruby
+Spp::spp_bench('start', 'end', '😃' * 5) do
+    
+end
+=>
+😃😃😃😃😃 start 😃😃😃😃😃
+"hoge"
+😃😃😃😃😃 end 😃😃😃😃😃
+```
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/Madogiwa0124/spp. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
