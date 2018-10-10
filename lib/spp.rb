@@ -1,7 +1,7 @@
 require "spp/version"
 require "pp"
 require 'date'
-
+require 'time'
 module Spp
   DEFAULT_START_STR = 'START'
   DEFAULT_END_STR   = 'E N D'
@@ -25,9 +25,9 @@ module Spp
       start_str ||= DEFAULT_START_STR
       end_str   ||= DEFAULT_END_STR
       line_str  ||= DEFAULT_LINE_STR
-      puts "#{line_str} #{start_str}(#{Time.now}) #{line_str}"
+      puts "#{line_str} #{start_str}(#{Time.now.iso8601(3)}) #{line_str}"
       pp yield
-      puts "#{line_str} #{end_str}(#{Time.now}) #{line_str}"
+      puts "#{line_str} #{end_str}(#{Time.now.iso8601(3)}) #{line_str}"
     end
   end
 end
