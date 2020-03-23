@@ -47,9 +47,9 @@ RSpec.describe Spp do
           'hoge'
         end
         text = <<~MSG
-          ========== START(#{Time.now}) ==========
+          ========== START(#{Time.now.iso8601(3)}) ==========
           "hoge"
-          ========== E N D(#{Time.now}) ==========
+          ========== E N D(#{Time.now.iso8601(3)}) ==========
         MSG
         expect($stdout.string).to eq text
       end
@@ -61,9 +61,9 @@ RSpec.describe Spp do
           'hoge'
         end
         text = <<~MSG
-          ⚡⚡⚡ start(#{Time.now}) ⚡⚡⚡
+          ⚡⚡⚡ start(#{Time.now.iso8601(3)}) ⚡⚡⚡
           "hoge"
-          ⚡⚡⚡ end(#{Time.now}) ⚡⚡⚡
+          ⚡⚡⚡ end(#{Time.now.iso8601(3)}) ⚡⚡⚡
         MSG
         expect($stdout.string).to eq text
       end
