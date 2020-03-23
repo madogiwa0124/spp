@@ -1,76 +1,78 @@
-require "stringio"
-require "timecop"
+# frozen_string_literal: true
+
+require 'stringio'
+require 'timecop'
 
 RSpec.describe Spp do
-  it "has a version number" do
+  it 'has a version number' do
     expect(Spp::VERSION).not_to be nil
   end
 
-  describe ".spp" do
+  describe '.spp' do
     before { $stdout = StringIO.new }
     context 'nothing argument' do
       it 'output with default decoration' do
-        Spp::spp('hoge')
-        text = <<~EOS
+        Spp.spp('hoge')
+        text = <<~MSG
           ========== START ==========
           "hoge"
           ========== E N D ==========
-        EOS
+        MSG
         expect($stdout.string).to eq text
       end
     end
 
     context 'with argument' do
       it 'output with argumrnt decoration' do
-        Spp::spp('hoge', 'start', 'end', '⚡' * 3)
-        text = <<~EOS
+        Spp.spp('hoge', 'start', 'end', '⚡' * 3)
+        text = <<~MSG
           ⚡⚡⚡ start ⚡⚡⚡
           "hoge"
           ⚡⚡⚡ end ⚡⚡⚡
-        EOS
+        MSG
         expect($stdout.string).to eq text
       end
     end
   end
 
-  describe ".spp_bench" do
-    before do 
+  describe '.spp_bench' do
+    before do
       $stdout = StringIO.new
       Timecop.freeze(Time.now)
     end
 
     context 'nothing argument' do
       it 'output with default decoration' do
-        Spp::spp_bench do
+        Spp.spp_bench do
           'hoge'
         end
-        text = <<~EOS
+        text = <<~MSG
           ========== START(#{Time.now}) ==========
           "hoge"
           ========== E N D(#{Time.now}) ==========
-        EOS
+        MSG
         expect($stdout.string).to eq text
       end
     end
 
     context 'with argument' do
       it 'output with argumrnt decoration' do
-        Spp::spp_bench('start', 'end', '⚡' * 3) do
+        Spp.spp_bench('start', 'end', '⚡' * 3) do
           'hoge'
         end
-        text = <<~EOS
+        text = <<~MSG
           ⚡⚡⚡ start(#{Time.now}) ⚡⚡⚡
           "hoge"
           ⚡⚡⚡ end(#{Time.now}) ⚡⚡⚡
-        EOS
+        MSG
         expect($stdout.string).to eq text
       end
     end
 
     context 'nothing block' do
       it 'output error message' do
-        Spp::spp_bench
-        text = "No processing is given. Please give block argument."
+        Spp.spp_bench
+        text = 'No processing is given. Please give block argument.'
         expect($stdout.string).to be_include(text)
       end
     end
