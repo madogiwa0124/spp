@@ -1,6 +1,7 @@
 # Spp
 
 ![spp ci](https://github.com/Madogiwa0124/spp/workflows/spp%20ci/badge.svg)
+[![Gem Version](https://badge.fury.io/rb/spp.svg)](https://badge.fury.io/rb/spp)
 
 `spp` is super pretty print library.
 It is useful for log output etc.
