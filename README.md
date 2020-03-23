@@ -1,6 +1,8 @@
 # Spp
 
-`spp` is super pretty print library.  
+![spp ci](https://github.com/Madogiwa0124/spp/workflows/spp%20ci/badge.svg)
+
+`spp` is super pretty print library.
 It is useful for log output etc.
 
 ## Installation
@@ -48,7 +50,7 @@ Spp::spp('hoge', 'start', 'end', '😃' * 5)
 You can also pass the block and take the benchmark.
 ``` ruby
 Spp::spp_bench('start', 'end', '😃' * 5) do
-  # some kind of processing    
+  # some kind of processing
 end
 =>
 😃😃😃😃😃 start(2018-08-09 08:41:09 +0900) 😃😃😃😃😃
