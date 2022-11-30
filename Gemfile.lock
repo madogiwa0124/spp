@@ -40,7 +40,7 @@ GEM
     rubocop-ast (1.17.0)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
-    timecop (0.9.5)
+    timecop (0.9.6)
     unicode-display_width (2.1.0)
 
 PLATFORMS
